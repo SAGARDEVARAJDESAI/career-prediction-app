@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Predictor</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f2f6fa;
+            color: #222;
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #fff;
+            max-width: 420px;
+            margin: 55px auto;
+            padding: 35px 32px 20px 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,60,105,0.08);
+        }
+        h2 {
+            color: #287ddb;
+            font-weight: 700;
+            margin-bottom: 26px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        label {
+            font-weight: 500;
+            color: #203040;
+            margin-bottom: 5px;
+        }
+        input[type=number] {
+            border: 1px solid #d6e4f1;
+            border-radius: 6px;
+            padding: 9px 12px;
+            font-size: 1em;
+            transition: border-color 0.2s;
+        }
+        input[type=number]:focus {
+            outline: none;
+            border-color: #287ddb;
+        }
+        button[type=submit] {
+            background: linear-gradient(90deg,#287ddb 0%, #49c6e5 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.07em;
+            padding: 10px 0;
+            border: none;
+            border-radius: 7px;
+            box-shadow: 0 2px 6px rgba(40,125,219,0.12);
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        button[type=submit]:hover {
+            background: linear-gradient(90deg,#49c6e5 0%, #287ddb 100%);
+            box-shadow: 0 4px 18px rgba(40,125,219,0.20);
+        }
+        .result {
+            margin-top: 22px;
+            font-size: 1.15em;
+            color: #1da96b;
+            padding: 12px;
+            border-radius: 6px;
+            background: #e9f7ef;
+            box-shadow: 0 2px 8px rgba(29,169,107,0.08);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Career Predictor</h2>
+        <form method="POST">
+            <label for="python">Python Skill (1-10):</label>
+            <input type="number" min="1" max="10" name="python" id="python" required>
+
+            <label for="java">Java Skill (1-10):</label>
+            <input type="number" min="1" max="10" name="java" id="java" required>
+
+            <label for="sql">SQL Skill (1-10):</label>
+            <input type="number" min="1" max="10" name="sql" id="sql" required>
+
+            <label for="ai">AI Interest (1-10):</label>
+            <input type="number" min="1" max="10" name="ai" id="ai" required>
+
+            <label for="web">Web Development Interest (1-10):</label>
+            <input type="number" min="1" max="10" name="web" id="web" required>
+
+            <label for="comm">Communication Score (1-10):</label>
+            <input type="number" min="1" max="10" name="comm" id="comm" required>
+
+            <button type="submit">Predict Career</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
